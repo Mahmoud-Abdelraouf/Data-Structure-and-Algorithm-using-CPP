@@ -66,4 +66,4 @@ Contributions are welcome and encouraged! Here's how you can contribute to this 
 
 ## License
 
-This project is licensed under the [License Name] - see the [LICENSE.md](LICENSE) file for details.
+This project is licensed under the [MIT license] - see the [LICENSE.md](LICENSE) file for details.
