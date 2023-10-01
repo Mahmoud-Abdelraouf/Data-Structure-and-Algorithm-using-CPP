@@ -66,8 +66,4 @@ Contributions are welcome and encouraged! Here's how you can contribute to this 
 
 ## License
 
-This project is licensed under the [License Name] - see the [LICENSE.md](LICENSE.md) file for details.
-
----
-
-Feel free to modify and expand the README.md file according to your needs. Make sure to replace placeholders like `[Instructor Name]`, `link_to_course_logo.png`, and others with the actual information and links.
+This project is licensed under the [License Name] - see the [LICENSE.md](LICENSE) file for details.
