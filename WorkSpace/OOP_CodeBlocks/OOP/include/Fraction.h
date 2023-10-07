@@ -70,7 +70,18 @@ public:
      *
      * @return None.
      */
-    void add(Fraction f2);
+    void add(Fraction const &f2);
+
+    /**
+     * @brief Multiplies the fraction by another fraction.
+     *
+     * This function multiplies the current fraction by the given fraction @p f2.
+     * The multiplication is performed in place, modifying the current fraction object.
+     * The function does not simplify the result.
+     *
+     * @param[in] f2 The fraction to multiply by.
+     */
+    void multiply(Fraction const &f2);
 
     /**
      * @brief Virtual destructor for Fraction class.

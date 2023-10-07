@@ -21,6 +21,12 @@ Fraction::Fraction(int numerator, int denominator) {
 
 }
 
+/**
+ * @brief Prints the fraction to the standard output.
+ *
+ * This function prints the fraction in the format "numerator/denominator" followed by a new line.
+ * The fraction is printed using standard output stream (cout).
+ */
 void Fraction::print() const {
     cout<< this->numerator << "/" << this->denominator << endl;
 }
@@ -37,10 +43,10 @@ void Fraction::print() const {
  * @code
  * Fraction f1(10, 2); // Represents 10/2
  * Fraction f2(15, 4); // Represents 15/4
- * f1.add(f2); // Adds f2 to f1, result stored in f1 (f1 = f1 + f2)
+ * f1.add(f2); ///< Adds f2 to f1, result stored in f1 (f1 = f1 + f2)
  * @endcode
  */
-void Fraction::add(Fraction f2) {
+void Fraction::add(Fraction const &f2) {
     /**< Calculate the LCM (Least Common Multiple) */
     int lcm = this->denominator * f2.denominator;
 
@@ -60,6 +66,20 @@ void Fraction::add(Fraction f2) {
 }
 
 /**
+ * @brief Multiplies the fraction by another fraction.
+ *
+ * This function multiplies the current fraction by the given fraction @p f2 and simplifies the result.
+ *
+ * @param[in] f2 The fraction to multiply by.
+ */
+void Fraction::multiply(Fraction const &f2) {
+    this->numerator *= f2.numerator;
+    this->denominator *= f2.denominator;
+
+    simplify();
+}
+
+/**
  * @brief Simplifies the fraction to its simplest form.
  *
  * This function simplifies the fraction by finding the greatest common divisor (GCD)
@@ -68,23 +88,23 @@ void Fraction::add(Fraction f2) {
  *
  * Example Usage:
  * @code
- * Fraction f(20, 40); // Represents 20/40
- * f.simplify(); // Simplifies the fraction to 1/2
+ * Fraction f(20, 40); ///< Represents 20/40
+ * f.simplify(); ///< Simplifies the fraction to 1/2
  * @endcode
  */
 void Fraction::simplify(void) {
-    int gcd = 1; // Initialize the greatest common divisor to 1
+    int gcd = 1; ///< Initialize the greatest common divisor to 1
     int j = min(this->numerator, this->denominator);
 
-    // Iterate from 1 to the minimum of numerator and denominator to find GCD
+    ///< Iterate from 1 to the minimum of numerator and denominator to find GCD
     for(int i = 1; i <= j; i++) {
-        // Check if both numerator and denominator are divisible by i
+        ///< Check if both numerator and denominator are divisible by i
         if((this->denominator % i == 0) && (this->numerator % i == 0)) {
-            gcd = i; // Update GCD if both are divisible by i
+            gcd = i; ///< Update GCD if both are divisible by i
         }
     }
 
-    // Simplify the numerator and denominator after calculating the GCD
+    ///< Simplify the numerator and denominator after calculating the GCD
     this->denominator /= gcd;
     this->numerator /= gcd;
 }
