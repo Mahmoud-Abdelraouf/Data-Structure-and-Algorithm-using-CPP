@@ -1,21 +1,22 @@
 /**
  * @file main.cpp
- * @brief Implementation of selection sort algorithm.
+ * @brief Implementation of bubble sort algorithm.
  */
+
 #include <iostream>
 #include <stdint.h>
 
 using namespace std;
 
 /**
- * @brief Sorts an array using selection sort algorithm.
+ * @brief Sorts an array using bubble sort algorithm.
  * @param arr[] The array to be sorted.
  * @param n The number of elements in the array.
  */
-void selectionSort(int arr[], int n);;
+void bubbleSort(int arr[], int n);
 
 /**
- * @brief Main function to demonstrate selection sort.
+ * @brief Main function to demonstrate bubble sort.
  * @return 0 on successful execution.
  */
 int main(void) {
@@ -33,8 +34,8 @@ int main(void) {
         cin>>iterator;
     }
 
-    /**< sort the the data of the array */
-    selectionSort(arr, n);
+    /**< sort the data of the array */
+    bubbleSort(arr, n);
 
     /**< Print the elements after the sorting */
     cout<<"Elements after the sorting: ";
@@ -46,26 +47,20 @@ int main(void) {
 }
 
 /**
- * @brief Sorts an array using selection sort algorithm.
+ * @brief Sorts an array using bubble sort algorithm.
  * 
- * This function implements the selection sort algorithm to sort the given array
+ * This function implements the bubble sort algorithm to sort the given array
  * in ascending order.
  * 
  * @param arr[] The array to be sorted.
  * @param n The number of elements in the array.
  */
-void selectionSort(int arr[], int n) {
-    for(int i = 0; i <= n-2; i++) {
-        /**< Find the smallest no. */
-        int smallestIndex = i;
-        for(int j = i+1; j <= n-1; j++) {
-                if(arr[j] < arr[smallestIndex]) {
-                    smallestIndex = j;
-                }
-        }
-        /**< Compare the smallest value and the current value */
-        if(arr[i] > smallestIndex) {
-            swap(arr[i], arr[smallestIndex]);
+void bubbleSort(int arr[], int n) {
+    for(int count = 1; count <= n-1; count++) {
+        for(int j = 0; j <= n-2; j++) {
+            if(arr[j] > arr[j+1]) {
+                swap(arr[j], arr[j+1]);
+            }
         }
     }
 }
