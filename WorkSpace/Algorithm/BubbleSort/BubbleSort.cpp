@@ -56,11 +56,23 @@ int main(void) {
  * @param n The number of elements in the array.
  */
 void bubbleSort(int arr[], int n) {
+    /**< Loop through the array */
     for(int count = 1; count <= n-1; count++) {
+        /**< Flag to track if any swaps are made */
+        bool flag = false;
+        
+        /**< Iterate through the array and perform swaps */
         for(int j = 0; j <= n-2; j++) {
             if(arr[j] > arr[j+1]) {
                 swap(arr[j], arr[j+1]);
+                flag = true;
             }
+        }
+        
+        /**< If the array is already sorted, exit the loop */
+        if(flag == false) {
+            /**< The Array is already sorted */
+            break;
         }
     }
 }
