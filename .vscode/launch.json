@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Embedded_Systems_and_Computer_Programming/Software/Data-Structure-and-Algorithm-using-CPP/WorkSpace/Algorithm/BinarySearch",
-      "program": "d:/Embedded_Systems_and_Computer_Programming/Software/Data-Structure-and-Algorithm-using-CPP/WorkSpace/Algorithm/BinarySearch/build/Debug/outDebug",
+      "cwd": "d:/Embedded_Systems_and_Computer_Programming/Software/Data-Structure-and-Algorithm-using-CPP/WorkSpace/Reccursion/Intermediate",
+      "program": "d:/Embedded_Systems_and_Computer_Programming/Software/Data-Structure-and-Algorithm-using-CPP/WorkSpace/Reccursion/Intermediate/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
