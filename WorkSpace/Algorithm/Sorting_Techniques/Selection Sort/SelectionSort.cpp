@@ -46,7 +46,7 @@ int main(void) {
 }
 
 /**
- * @brief Sorts an array using selection sort algorithm.
+ * @brief Sorts an array using the selection sort algorithm.
  * 
  * This function implements the selection sort algorithm to sort the given array
  * in ascending order.
@@ -56,16 +56,17 @@ int main(void) {
  */
 void selectionSort(int arr[], int n) {
     for(int i = 0; i <= n-2; i++) {
-        /**< Find the smallest no. */
+        /**< Find the smallest number in the remaining unsorted part of the array */
         int smallestIndex = i;
         for(int j = i+1; j <= n-1; j++) {
-                if(arr[j] < arr[smallestIndex]) {
-                    smallestIndex = j;
-                }
+            /**< If the current element is smaller than the smallest element found so far */
+            if(arr[j] < arr[smallestIndex]) {
+                /**< Update the index of the smallest element */
+                smallestIndex = j;
+            }
         }
-        /**< Compare the smallest value and the current value */
-        if(arr[i] > smallestIndex) {
-            swap(arr[i], arr[smallestIndex]);
-        }
+        /**< Swap the smallest element with the first element in the unsorted part of the array */
+        swap(arr[i], arr[smallestIndex]);
     }
 }
+
