@@ -110,7 +110,8 @@ int main() {
         auto durationIterative = chrono::duration_cast<chrono::microseconds>(endIterative - startIterative).count();
 
         // Print Fibonacci numbers and execution times
-        cout << "Fibonacci(" << fibIndex << "): Recursive = " << recursiveFib << " | Time: " << durationRecursive << " microseconds, Iterative = " << iterativeFib << " | Time: " << durationIterative << " microseconds" << endl;
+        cout << "Fibonacci(" << fibIndex << "): Recursive = " << recursiveFib << " | Time: " << durationRecursive 
+             << " microseconds, Iterative = " << iterativeFib << " | Time: " << durationIterative << " microseconds" << endl;
     }
 
     return 0;
