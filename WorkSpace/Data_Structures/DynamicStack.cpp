@@ -7,6 +7,8 @@
 
 using namespace std;
 
+template <typename TempType>
+
 /**
  * @class Stack
  * @brief Represents a stack data structure.
@@ -14,7 +16,7 @@ using namespace std;
 class Stack
 {
 private:
-    int *arr; /**< Pointer to an array for storing elements. */
+    TempType *arr; /**< Pointer to an array for storing elements. */
     int nextIndex; /**< Index for the next element. */
     int capacity; /**< Maximum capacity of the stack. */
     
@@ -25,7 +27,7 @@ public:
      * Constructs a stack with a default capacity of 10.
      */
     Stack() {
-        arr = new int[10];
+        arr = new TempType[10];
         nextIndex = 0;
         capacity = 10;
     }
@@ -38,7 +40,7 @@ public:
      */
     Stack(int cap) {
         capacity = cap;
-        arr = new int[capacity];
+        arr = new TempType[capacity];
         nextIndex = 0;
     }
 
@@ -64,10 +66,10 @@ public:
      * If the stack is full, it will double its capacity and copy existing elements.
      * @param element The element to be pushed.
      */
-    void push(int element) {
+    void push(TempType element) {
         if(nextIndex == capacity) {
             int newCapacity = 2 * capacity;
-            int* newArr = new int[newCapacity];
+            TempType* newArr = new TempType[newCapacity];
             
             for(int i = 0; i < capacity; i++) {
                 newArr[i] = arr[i];
@@ -102,10 +104,10 @@ public:
      * If the stack is empty, an error message is printed and -1 is returned.
      * @return The top element of the stack.
      */
-    int top(void) {
+    TempType top(void) {
         if(isEmpty()) {
             cout << "Stack is Empty" << endl;
-            return -1;
+            return 0;
         }
         return arr[nextIndex - 1];
     }
@@ -126,19 +128,23 @@ public:
  */
 int main() 
 {
-    /**< Create a stack with default capacity (10) */ 
-    Stack s1;
-
-    /**< Push elements onto the stack */ 
-    for(int i = 0; i < 15; i++) {
-        s1.push(i * 10);
+    /**< Testing with int */ 
+    Stack<int> intStack;
+    for(int i = 0; i < 5; i++) {
+        intStack.push(i * 10);
     }
 
-    /**< Print the size of the stack */ 
-    cout << "Size of s1: " << s1.size() << endl;
+    cout << "Int Stack Size: " << intStack.size() << endl;
+    cout << "Top element of Int Stack: " << intStack.top() << endl;
 
-    /**<  Print the top element of the stack */   
-    cout << "Top element of s1: " << s1.top() << endl;
+    /**< Testing with double */ 
+    Stack<double> doubleStack;
+    for(double i = 0.5; i < 2.5; i += 0.5) {
+        doubleStack.push(i * 10);
+    }
+
+    cout << "Double Stack Size: " << doubleStack.size() << endl;
+    cout << "Top element of Double Stack: " << doubleStack.top() << endl;
 
     return 0;
 }
