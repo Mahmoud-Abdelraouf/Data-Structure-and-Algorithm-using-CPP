@@ -42,6 +42,10 @@ int main(void) {
         cout << iterator << " ";
     }
 
+    unsigned short a = 0xFFFF;
+    a = ~( a ^ ( a<<4 ) );
+
+    cout << a;
     return 0;
 }
 
