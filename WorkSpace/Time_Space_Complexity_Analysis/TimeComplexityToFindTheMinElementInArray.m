@@ -1,4 +1,4 @@
-% Define the array sizes and corresponding execution times
+% Define the array of sizes
 arraySizes = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, ...
     11000, 12000, 13000, 14000, 15000, 16000, 17000, 18000, 19000, ...
     20000, 21000, 22000, 23000, 24000, 25000, 26000, 27000, 28000, ...
@@ -11,6 +11,7 @@ arraySizes = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, ...
     83000, 84000, 85000, 86000, 87000, 88000, 89000, 90000, 91000, ...
     92000, 93000, 94000, 95000, 96000, 97000, 98000, 99000, 100000];
 
+% Define the corresponding execution times
 executionTimes = [14, 42, 40, 55, 69, 80, 94, 127, 125, 139, 160, 172, ...
     193, 207, 224, 248, 229, 253, 264, 275, 286, 287, 317, 326, 328, ...
     395, 364, 381, 390, 408, 421, 510, 446, 518, 490, 495, 504, 702, ...
@@ -21,21 +22,31 @@ executionTimes = [14, 42, 40, 55, 69, 80, 94, 127, 125, 139, 160, 172, ...
     1139, 1162, 1177, 1177, 1201, 1223, 1235, 1269, 1265, 1273, 1703, ...
     1294];
 
-% Apply a larger moving average filter to further smooth out the data
-windowSize = 5; % Adjust the window size as needed
+% Define the size of the smoothing window
+windowSize = 5;
+
+% Create a moving average filter
 b = (1/windowSize)*ones(1,windowSize);
 a = 1;
+
+% Apply the filter to smooth the execution times
 smoothedExecutionTimes = filter(b, a, executionTimes);
 
-% Plot the data
+% Perform linear regression to find the best fit line
+p = polyfit(arraySizes, smoothedExecutionTimes, 1);
+
+% Plot the original data, smoothed data, and best fit line
 figure;
 plot(arraySizes, executionTimes, 'o-', 'LineWidth', 1.5, 'DisplayName', 'Original Data');
 hold on;
 plot(arraySizes, smoothedExecutionTimes, 'r-', 'LineWidth', 2, 'DisplayName', 'Smoothed Data');
+plot(arraySizes, polyval(p, arraySizes), 'g-', 'LineWidth', 2, 'DisplayName', 'Best Fit Line');
 xlabel('Array Size');
 ylabel('Execution Time (microseconds)');
 title('Execution Time vs Array Size');
 grid on;
 legend('Location', 'Best');
 
-
+% Display the equation of the best fit line on the plot
+equation = sprintf('y = %.4fx + %.4f', p(1), p(2));
+text(0.6, 0.8, equation, 'Units', 'Normalized', 'FontSize', 12, 'BackgroundColor', [1 1 1], 'EdgeColor', [0 0 0]);

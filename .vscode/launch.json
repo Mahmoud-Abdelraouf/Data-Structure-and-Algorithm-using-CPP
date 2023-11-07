@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Embedded_Systems_and_Computer_Programming/Software/Data-Structure-and-Algorithm-using-CPP/WorkSpace/Time_Space_Complexity_Analysis",
-      "program": "d:/Embedded_Systems_and_Computer_Programming/Software/Data-Structure-and-Algorithm-using-CPP/WorkSpace/Time_Space_Complexity_Analysis/build/Debug/outDebug",
+      "cwd": "d:/Embedded_Systems_and_Computer_Programming/Software/Data-Structure-and-Algorithm-using-CPP/WorkSpace/Data_Structures",
+      "program": "d:/Embedded_Systems_and_Computer_Programming/Software/Data-Structure-and-Algorithm-using-CPP/WorkSpace/Data_Structures/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
