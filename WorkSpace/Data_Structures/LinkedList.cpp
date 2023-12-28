@@ -129,6 +129,79 @@ public:
     }
 
     /**
+      * @brief Checks if the linked list is empty.
+      *
+      * This function checks if the head pointer is nullptr, indicating that the linked list is empty.
+      *
+      * @return True if the linked list is empty, otherwise false.
+      */
+    bool isEmpty(void) const {
+        return head == nullptr;
+    }
+
+    /**
+      * @brief Calculates the length of the linked list.
+      *
+      * This function iterates through the linked list and counts the number of nodes,
+      * effectively determining the length of the list.
+      *
+      * @return The length of the linked list.
+      */
+    int getLength(void) const {
+        int length = 0; /**< Initialize the length counter to zero. */
+        Node *temp = head; /**< Create a temporary pointer to traverse the list, starting from the head. */
+
+        while(temp) {   
+            length++; /**< Increment the length for each node encountered. */
+            temp = temp->getNext(); /**< Move to the next node. */
+        }
+        return length; /**< Return the final length of the linked list. */
+    }
+
+    /**
+      * @brief Inserts a new node with the given data at the front of the linked list.
+      *
+      * This function creates a new node with the provided data and inserts it at the front
+      * of the linked list. If the list is empty, the new node becomes the head of the list.
+      *
+      * @param data The data to be inserted at the front of the linked list.
+      *
+      * @note The LinkedList class owns the memory allocated for the nodes.
+      *       It is responsible for deallocating the memory when the linked list is destroyed.
+      */
+    void pushFront(int data) {
+        /**< Create a new node with the provided data */ 
+        Node *newNode = new Node(data);
+
+        // If the list is empty, set the new node as the head
+        if(head == nullptr) {
+            head = newNode;
+        } else {
+            /**< If the list is not empty, update pointers to insert the new node at the front */ 
+            newNode->setNext(head); /**< Set the next pointer of the new node to the current head */ 
+            head = newNode; /**< Update the head to point to the new node */ 
+        }
+    }
+
+    /**
+      * @brief Removes the first node from the linked list.
+      *
+      * If the linked list is not empty, this function removes the first node,
+      * deallocates the memory associated with it, and updates the head pointer
+      * to point to the new first node.
+      */
+    void popFront() {
+        if (head == nullptr) {
+            return; /**< Nothing to remove from an empty list */ 
+        } else {
+            Node *tempDeletedNode = head; /**< Store a reference to the first node */ 
+            head = head->getNext(); /**< Update head to point to the next node */ 
+            delete tempDeletedNode; /**< Deallocate memory of the removed node */ 
+        }
+    }
+
+
+    /**
      * @brief Method to print the elements of the linked list.
      */
     void print() const {

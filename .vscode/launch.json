@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Embedded_Systems_and_Computer_Programming/Software/Data-Structure-and-Algorithm-using-CPP/WorkSpace/Data_Structures",
-      "program": "d:/Embedded_Systems_and_Computer_Programming/Software/Data-Structure-and-Algorithm-using-CPP/WorkSpace/Data_Structures/build/Debug/outDebug",
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

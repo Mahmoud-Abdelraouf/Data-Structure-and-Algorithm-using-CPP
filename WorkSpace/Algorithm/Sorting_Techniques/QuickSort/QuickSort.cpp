@@ -51,7 +51,7 @@ void quickSort(int a[], int s, int e) {
  * @return 0 on successful execution.
  */
 int main() {
-    int arr[] = {2, 1, 3, 4, 5, 7, -2}; // Example unsorted array
+    int arr[] = {1, 2, 7, 3, 5, 10}; // Example unsorted array
     int n = sizeof(arr) / sizeof(arr[0]); // Calculate the number of elements in the array
 
     // Sort the array using QuickSort
